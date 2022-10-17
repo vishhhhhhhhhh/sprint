@@ -1,0 +1,21 @@
+package com.capg.service;
+
+
+import java.util.List;
+
+import com.capg.dto.Customerdto;
+import com.capg.dto.Ordersdto;
+import com.capg.entity.Customer;
+import com.capg.entity.Orders;
+import com.capg.exception.CustomerServiceNotFoundException;
+import com.capg.exception.OrderServiceNotFoundException;
+
+
+public interface IOrderService {
+	
+	public void addOrder(Ordersdto order) throws OrderServiceNotFoundException;
+	public void deleteOrder(Long orderId) throws OrderServiceNotFoundException;
+	public void updateOrder(Long orderId, Orders orders) throws OrderServiceNotFoundException;
+	public Orders getOrderDetails(Long orderId) throws OrderServiceNotFoundException;
+	public List<Orders> getAllOrders() throws OrderServiceNotFoundException ;
+}

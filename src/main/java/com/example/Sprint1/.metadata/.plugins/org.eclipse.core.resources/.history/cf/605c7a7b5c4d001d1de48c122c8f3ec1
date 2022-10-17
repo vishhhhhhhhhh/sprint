@@ -1,0 +1,12 @@
+package com.capg.service;
+
+
+import com.capg.dto.Ordersdto;
+import com.capg.exception.OrderServiceNotFoundException;
+
+
+public interface IOrderService {
+	
+	public void addOrder(Ordersdto order) throws OrderServiceNotFoundException;
+
+}

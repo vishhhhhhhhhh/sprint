@@ -1,0 +1,38 @@
+package com.capg.service;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.capg.dto.Customerdto;
+import com.capg.dto.Ordersdto;
+import com.capg.dto.Paymentdto;
+import com.capg.entity.Customer;
+import com.capg.entity.Orders;
+import com.capg.exception.OrderServiceNotFoundException;
+import com.capg.repository.IOrderRepository;
+
+@Service(value = "orderService")
+@Transactional
+
+public class OrderServiceImp implements IOrderService{
+	
+	@Autowired
+	private IOrderRepository orderRepository;
+	
+	@Override
+	public void addOrder(Ordersdto order) throws OrderServiceNotFoundException{
+		Orders orderEntity = new Orders();
+		orderEntity.setOrderId(order.getOrderId());
+		orderEntity.setAmount(order.getAmount());
+		orderEntity.setBillingDate(order.getBillingDate());
+		orderEntity.setPaymentMethod(order.getPaymentMethod());
+		orderEntity.setCustomer(order.getCustomer());
+		orderEntity.setPayment(order.getPayment());
+				
+		
+	}
+
+}
